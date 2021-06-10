@@ -8,4 +8,22 @@
    - Iniciar Sesión
    - Registrarse
 */
+
+/*
+   Sesiones validas para usuarios no logeados:
+      -Principal
+      -Iniciar Sesion
+
+   Sesiones validas para cualquier usuario logeado:
+      -Principal
+      -Perfil
+      -Billetera
+   
+   Sesiones validas para admins logeados:
+      -Principal
+      -Perfil
+      -Billetera
+      -CRUD
+      
+*/
 ?>

@@ -1,4 +1,9 @@
 <?php include '../include/navbar.html'; ?>
+<?php session_start(); 
+if(!isset($_SESSION['email']) ) 
+{
+    echo "<script type='text/javascript'>alert('Debes iniciar sesion primero.');document.location='/sesion/log-in.html';</script>";
+}?>
     <div class='container-fluid'>
         <div class="row p-3">
             <h1>Mi Billetera</h1>
