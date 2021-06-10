@@ -3,9 +3,10 @@
 # "Cryptomonedas: P-Coin II"
 
 **Grupo n°16 "Nombre de Grupo":**
-- Francisco Pizarro (MasterZer0xx)
+
+- Rodrigo Alarcón
 - Juan Parra
-- Rodrigo 
+- Francisco Pizarro (MasterZer0xx)
 
 
 ## Supuestos y consideraciones:
