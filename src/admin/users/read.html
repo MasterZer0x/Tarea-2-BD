@@ -1,5 +1,12 @@
 <?php include '../../include/navbar.html'; ?>
 <?php include 'CRUD/read.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$pattern = "/.*=([0-9]+)/i";
+preg_match($pattern, $actual_link, $re); 
+$id = $re[1];
+?>
+
     <div class='container-fluid'>
         <div class="row p-3">
             <h1>Ver Usuario</h1>
@@ -8,17 +15,28 @@
             <div class="col">
                 <div class="container shadow-lg rounded m-auto p-5">
                         <!-- Aquí debe aparecer toda la información relevante del usuario -->
-                        <p>ID: </p>
-                        <p>Nombre: </p>
-                        <p>Apellido: </p>
-                        <p>Correo: </p>
-                        <p>País: </p>
-                        <p>Fecha de Ingreso: </p>
-                        <div class='d-flex justify-content-end'>
-                            <a href="/admin/users/all.html" class="btn btn-secondary">Volver</a>
-                            <!-- Estos links deberían tener el ID asociado -->
-                            <a href="/admin/users/update.html?id=0" class="btn btn-warning mx-3">Editar <i class="fas fa-edit"></i></a>
-                            <a href="/admin/users/CRUD/delete.php?id=0" class="btn btn-danger">Borrar <i class="fas fa-trash-alt"></i></a></td>
+
+                        <?php 
+                        $sql = "SELECT * FROM usuario WHERE id = $id";
+                        $result = pg_query_params($dbconn, $sql, array());
+                        if( pg_num_rows($result) == 1)
+                        {
+                            $row = pg_fetch_assoc($result);
+                            echo
+                            '<p>ID: '. $row['id']. '</p>'.
+                            '<p>Nombre: '. $row['nombre']. '</p>'.
+                            '<p>Apellido: '. $row['apellido']. '</p>'.
+                            '<p>Correo: '. $row['correo']. '</p>'.
+                            '<p>País: '. $row['pais']. '</p>'.
+                            '<p>Fecha de Ingreso: '. $row['fecha_registro']. '</p>'.
+                            '<div class="d-flex justify-content-end">
+                                <a href="/admin/users/all.html" class="btn btn-secondary">Volver</a>
+                                <!-- Estos links deberían tener el ID asociado -->
+                                <a href="/admin/users/update.html?id='.$row['id'].'" class="btn btn-warning mx-3">Editar <i class="fas fa-edit"></i></a>
+                                <a href="/admin/users/CRUD/delete.php?id='.$row['id'].'" class="btn btn-danger">Borrar <i class="fas fa-trash-alt"></i></a></td>'
+                            ;
+                        }
+                        ?>
                         </div>
                 </div>
             </div>
