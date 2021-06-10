@@ -1,0 +1,46 @@
+<?php include '../../include/navbar.html'; ?>
+<?php include 'CRUD/all.php'; ?>
+<div class='container-fluid'>
+    <div class="row p-3">
+        <h1>Administración de Usuarios</h1>
+    </div>
+    <div class="row p-3">
+        <div class="col">
+            <!-- Mostrar aquí los datos de cada usuario -->
+            <div class="container shadow-lg rounded m-auto p-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellido</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Debería haber una de estas por cada usuario -->
+                        <!-- Link de las Acciones debe llevar el ID del usuario -->
+                        <tr>
+                            <td>0</td>
+                            <td>Joe</td>
+                            <td>Mama</td>
+                            <td>joe.mama@gottem.com</td>
+                            <td><a href="/admin/users/read.html?id=0" class="btn btn-primary">Ver <i
+                                        class="fas fa-search"></i></a>
+                                <a href="/admin/users/update.html?id=0" class="btn btn-warning">Editar <i
+                                        class="fas fa-edit"></i></a>
+                                <a href="/admin/users/CRUD/delete.php?id=0" class="btn btn-danger">Borrar <i
+                                        class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="/admin/users/create.html" class="btn btn-success">Nuevo <i class="fas fa-plus"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
