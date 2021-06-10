@@ -1,0 +1,53 @@
+<?php include '../../include/navbar.html'; ?>
+    <div class='container-fluid'>
+        <div class="row p-3">
+            <h1>Crear Usuario</h1>
+        </div>
+        <div class="row p-3">
+            <div class="col">
+                <div class="container shadow-lg rounded m-auto p-5">
+                    <form action="admin/users/CRUD/create.php">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" class="form-control" placeholder="Nombre" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Apellido</label>
+                            <input type="text" class="form-control" placeholder="Apellido" id="surname">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" class="form-control" placeholder="correo@electronico.com" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Contraseña</label>
+                            <input type="password" class="form-control" placeholder="Contraseña" id="pwd" required>
+                        </div>
+                        <!-- NOTA: Los valores están en duro para esta tarea. -->
+                        <div class="form-group">
+                            <label for="country">País</label>
+                            <select class="form-control" id="country">
+                              <option value="1">Angola</option>
+                              <option value="2">Sudáfrica</option>
+                              <option value="3">Canadá</option>
+                              <option value="4">Estados Unidos</option>
+                              <option value="5">Chile</option>
+                              <option value="6">Australia</option>
+                              <option value="7">India</option>
+                              <option value="8">Corea del Sur</option>
+                              <option value="9">Rusia</option>
+                              <option value="10">Suiza</option>
+                            </select>
+                          </div>
+                        <div class='d-flex justify-content-end'>
+                            <a class="btn btn-secondary mx-3" href="/admin/users/all.html">Volver</a>
+                            <button type="submit" class="btn btn-primary">Crear Usuario</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
