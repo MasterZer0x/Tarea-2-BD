@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <?php include '..\db_config.php';?>
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -16,6 +19,8 @@
         if( pg_num_rows($result) > 0 ) {
             $row = pg_fetch_assoc($result);
             if (password_verify($password, $row["contraseña"])){
+                $_SESSION["email"] = $email;
+
                 echo 'Login exitoso';
             } else {
                 echo "Contraseña Incorrecta";
