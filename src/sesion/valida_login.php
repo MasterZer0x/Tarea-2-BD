@@ -22,6 +22,8 @@ session_start();
                 $_SESSION["email"] = $email;
 
                 echo 'Login exitoso';
+                echo "<script type='text/javascript'>document.location='/user/profile.html';</script>";
+
             } else {
                 echo "Contraseña Incorrecta";
             }
