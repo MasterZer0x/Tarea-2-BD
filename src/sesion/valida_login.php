@@ -21,7 +21,7 @@ session_start();
             if (password_verify($password, $row["contraseña"])){
                 $_SESSION["email"] = $email;
                 
-                $sql = "SELECT nombre,apellido,pais,fecha_registro FROM usuario WHERE correo='".$email."'";
+                $sql = "SELECT nombre,apellido,pais,fecha_registro,rango FROM usuario WHERE correo='".$email."'";
                 $result = pg_query_params($dbconn, $sql, array());
                 $row = pg_fetch_array($result);
 
@@ -34,6 +34,7 @@ session_start();
                 $_SESSION["apellido"] = $row["apellido"];
                 $_SESSION["pais"] = $nombre_pais;
                 $_SESSION["fecha_registro"] = $row["fecha_registro"];
+                $_SESSION["rango"] = $row["rango"];
 
                 echo 'Login exitoso';
                 echo "<script type='text/javascript'>document.location='/user/profile.html';</script>";
