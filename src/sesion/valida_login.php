@@ -21,7 +21,7 @@ session_start();
             if (password_verify($password, $row["contraseña"])){
                 $_SESSION["email"] = $email;
                 
-                $sql = "SELECT nombre,apellido,pais,fecha_registro,rango FROM usuario WHERE correo='".$email."'";
+                $sql = "SELECT id,nombre,apellido,pais,fecha_registro,rango FROM usuario WHERE correo='".$email."'";
                 $result = pg_query_params($dbconn, $sql, array());
                 $row = pg_fetch_array($result);
 
@@ -29,7 +29,7 @@ session_start();
                 $result = pg_query_params($dbconn, $sql, array());
                 $nombre_pais = pg_fetch_result($result, 0);
 
-
+                $_SESSION["id"] = $row["id"];
                 $_SESSION["nombre"] = $row["nombre"];
                 $_SESSION["apellido"] = $row["apellido"];
                 $_SESSION["pais"] = $nombre_pais;
