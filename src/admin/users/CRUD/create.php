@@ -28,8 +28,6 @@ $resultCorreo = pg_query_params($dbconn, $sqlCorreo, array());
 $num_rows = pg_num_rows($resultCorreo);
 
 
-
-
 echo"<html>";
 echo"   <body>";
 

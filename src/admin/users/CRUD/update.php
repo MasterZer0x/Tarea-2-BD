@@ -2,7 +2,6 @@
 include '../../../include/navbar.html';
 
 $opciones = array('cost'=>12);
-
 $pwd_hashed = password_hash($_POST['password'], PASSWORD_BCRYPT, $opciones);
 
 $sql = "UPDATE usuario SET "
@@ -12,9 +11,6 @@ $sql = "UPDATE usuario SET "
     . "contraseña='". $pwd_hashed . "', "
     . "pais=". $_POST['pais'] . ""
     . " WHERE id=". $_POST['id'];
-
-
-// TODO: VINCULAR DROPDOWN DE PAISES CON ID'S DE BD.
 
 
 

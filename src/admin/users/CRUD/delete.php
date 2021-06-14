@@ -6,9 +6,28 @@ $pattern = "/.*=([0-9]+)/i";
 preg_match($pattern, $actual_link, $re); 
 $id = $re[1];
 
-$sql = "DELETE FROM usuario WHERE id=".$id;
+$plata = "SELECT * FROM usuario_tiene_moneda WHERE id_usuario =". $id;
+$revisarplata = pg_query_params($dbconn, $plata,array());
 
-$ejecucion = pg_query($dbconn, $sql);
+
+
+
+
+if (pg_num_rows($revisarplata) != 0){
+    $text = "Usuario contiene monedas en su cuenta. Primero se debe vaciar su monedero antes de eliminar.";
+    $etiq = "danger";}
+else{
+    $sql = "DELETE FROM usuario WHERE id=".$id;
+    $ejecucion = pg_query($dbconn, $sql);
+    if ($ejecucion) // Si no hay correos registrados
+    {
+        $text = "Usuario Eliminado correctamente.";
+        $etiq = "success";
+    } else {
+        $text = "Ha ocurrido un error al eliminar el usuario.";
+        $etiq = "danger";
+    }    
+}
 
 
 
@@ -23,13 +42,8 @@ echo '<div class="container shadow-lg rounded m-auto p-5">';
 
 echo '<div class="pt-xl-3 pb-xl-5">';
 
-if ($ejecucion) // Si no hay correos registrados
-{
-    echo '<h2 class="text-center text-success">Usuario Eliminado correctamente.</h2>';
+echo '<h2 class="text-center text-'. $etiq .'">'. $text .'</h2>';
 
-} else {
-    echo '<h2 class="text-center text-danger">No se ha podido eliminar al usuario.</h2>';
-}
 
 echo '</div>';
 
