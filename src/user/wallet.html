@@ -1,5 +1,11 @@
 <?php include '../include/navbar.html'; ?>
+<?php include 'wallet.php'; ?>
+<?php  
 
+if(!isset($_SESSION['email']) ) 
+{
+    echo "<script type='text/javascript'>alert('Debes iniciar sesion primero.');document.location='/sesion/log-in.html';</script>";
+}?>
     <div class='container-fluid'>
         <div class="row p-3">
             <h1>Mi Billetera</h1>
@@ -19,13 +25,21 @@
                         </thead>
                         <tbody>
                             <!-- Debería haber una de estas por cada moneda que tenga el usuario -->
-                            <tr>
-                                <td >DRCY</td>
-                                <td>Prestigiocoin</td>
-                                <td>12.34</td>
-                                <td>10.0 USD</td>
-                                <td>123.4 USD</td>
-                            </tr>
+
+                            <?php
+                                if( pg_num_rows($result) > 0 ) {
+                                    while($row = pg_fetch_assoc($result)) {
+                                        echo 
+                                        '<tr>' . 
+                                            '<td>'. $row["sigla"]. '</td>' .
+                                            '<td>'. $row["nombre"]. '</td>' .
+                                            '<td>'. $row["balance"]. '</td>' .
+                                            '<td>'. $row["valor"]. '</td>' .
+                                            '<td>'. $row["total"]. '</td>' .
+                                        '</tr>';
+                                    }
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>
