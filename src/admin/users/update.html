@@ -1,5 +1,9 @@
-<?php include '../../include/navbar.html'; ?>
-<?php include 'CRUD/read.php'; 
+<?php include '../../include/navbar.html';
+include 'CRUD/read.php'; 
+include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';
+
+$sqlPAIS = "SELECT * FROM pais ORDER BY cod_pais ASC";
+$resultPAIS = pg_query_params($dbconn, $sqlPAIS, array());
 
 $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $pattern = "/.*=([0-9]+)/i";
@@ -37,16 +41,14 @@ $id = $re[1];
                         <div class="form-group">
                             <label for="country">País</label>
                             <select name="pais" class="form-control" id="country">
-                              <option value="1">Angola</option>
-                              <option value="2">Sudáfrica</option>
-                              <option value="3">Canadá</option>
-                              <option value="4">Estados Unidos</option>
-                              <option value="5">Chile</option>
-                              <option value="6">Australia</option>
-                              <option value="7">India</option>
-                              <option value="8">Corea del Sur</option>
-                              <option value="9">Rusia</option>
-                              <option value="10">Suiza</option>
+                                <?php
+                                if( pg_num_rows($resultPAIS) > 0 ) {
+                                    while($row = pg_fetch_assoc($resultPAIS)) {
+                                        echo 
+                                        '<option value="' . $row["cod_pais"] .'">'. $row["nombre"]. '</option>';
+                                    }
+                                }
+                                ?>
                             </select>
                           </div>
                         <div class='d-flex justify-content-end'>
