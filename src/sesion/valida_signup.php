@@ -38,6 +38,7 @@
                 $result = pg_query_params($dbconn, $sql, array());
                 $nombre_pais = pg_fetch_result($result, 0);
                 
+		$_SESSION["id"] = $nextId;
                 $_SESSION["email"] = $email;
                 $_SESSION["nombre"] = $nombre;
                 $_SESSION["apellido"] = $apellido;
