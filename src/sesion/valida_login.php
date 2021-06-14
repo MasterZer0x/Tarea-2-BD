@@ -8,8 +8,6 @@
         // Config de encriptacion
         $opciones = array('cost'=>12);
 
-        echo "<br>Loging... </br>";
-
         // Preparamos y hacemos la query a la base de datos.
         $sql = 'SELECT usuario.correo, usuario.contraseña FROM usuario WHERE usuario.correo = $1';
         $result = pg_query_params($dbconn, $sql, array($email));

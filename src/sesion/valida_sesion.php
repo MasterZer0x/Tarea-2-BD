@@ -13,6 +13,11 @@
       if (($_SERVER["REQUEST_URI"] == "/sesion/log-in.html" || $_SERVER["REQUEST_URI"] == "/sesion/sign-up.html"))
          echo "<script type='text/javascript'>document.location='/';</script>";
    }
+
+   if(!isset($_SESSION['email'])){
+      if ($_SERVER["REQUEST_URI"] == "/admin/users/all.html" || $_SERVER["REQUEST_URI"] == "/user/wallet.html" || $_SERVER["REQUEST_URI"] == "/user/profile.html" )
+         echo "<script type='text/javascript'>document.location='/';</script>";
+   }
 /*
    if(!isset($_SESSION['email'])){
       if ($_SERVER["REQUEST_URI"] != "/" && $_SERVER["REQUEST_URI"] != "/sesion/sign-up.html" && $_SERVER["REQUEST_URI"] != "/sesion/log-in.html" )

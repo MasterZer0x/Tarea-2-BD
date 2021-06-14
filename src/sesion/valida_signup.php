@@ -15,7 +15,6 @@
         $complete = false;
 
         if ($pwd == $pwd2){
-            echo "Contraseñas coinciden!";
             $pwd_hashed = password_hash($pwd, PASSWORD_BCRYPT, $opciones);
 
             $sqlcount = "SELECT COUNT(*)+1 as nextid FROM usuario";
