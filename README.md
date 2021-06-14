@@ -21,13 +21,12 @@
 ## Modificaciones al modelo dado:
 
 - Se modifican los usuarios para que estos tuvieran un rango asociado segun su privilegio en el sistema. Se explico anteriormente el porque se eligio el tipo de este y sus ventajas.
-- 
+
 - Se modifican las contraseñas de los usuarios, para que estan esten hasheados de por si.
 
 ## Modificaciones a la plantilla:
 
 * all.php:
-
    * Se obtiene desde la BD los resultados de un query, teniendo asi todos los usuarios registrados en la BD.
 * all.html:
    * En base a los resultados obtenidos en all.php se imprimieran en una tabla (hecha con php en html) todos los datos encontrados y solicitados de cada usuario
