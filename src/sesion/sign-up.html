@@ -1,6 +1,7 @@
 <?php include '../include/header.html'; ?>
 <?php include 'valida_sesion.php' ?>
 
+
 <body>
     <div class='container-fluid'>
         <div class='row justify-content-center mt-5'>
@@ -8,30 +9,31 @@
                 <h1>Crear Cuenta</h1>
                 <p>Ingrese sus datos para crear una cuenta.</p>
                 <form action="/sesion/valida_signup.php" method="POST">
+                    <!-- Se agrega el label "name" a cada input -->
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" placeholder="Nombre" id="name" required>
+                        <input type="text" class="form-control" placeholder="Nombre" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="surname">Apellido</label>
-                        <input type="text" class="form-control" placeholder="Apellido" id="surname">
+                        <input type="text" class="form-control" placeholder="Apellido" id="surname" name="surname">
                     </div>
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" placeholder="correo@electronico.com" id="email" required>
+                        <input type="email" class="form-control" placeholder="correo@electronico.com" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="pwd">Contraseña</label>
-                        <input type="password" class="form-control" placeholder="Contraseña" id="pwd" required>
+                        <input type="password" class="form-control" placeholder="Contraseña" id="pwd" name="pwd" required>
                     </div>
                     <div class="form-group">
                         <label for="pwd2">Repetir Contraseña</label>
-                        <input type="password" class="form-control" placeholder="Contraseña" id="pwd2" required>
+                        <input type="password" class="form-control" placeholder="Contraseña" id="pwd2" name="pwd2" required>
                     </div>
                     <!-- NOTA: Los valores están en duro para esta tarea. -->
                     <div class="form-group">
                         <label for="country">País</label>
-                        <select class="form-control" id="country">
+                        <select class="form-control" id="country" name="country">
                           <option value="1">Angola</option>
                           <option value="2">Sudáfrica</option>
                           <option value="3">Canadá</option>
