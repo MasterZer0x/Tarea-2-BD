@@ -65,6 +65,8 @@ CRUD:
         Aqui revisa si estas en una pagina correcta dependiendo si estas logeado o no o eres admin, usando las variables de la sesion y la variable de pagina actual. Luego redirecciona a la pagina principal en caso de algo no deseado.
     - valida_signup.php:
         Se guardan las variables de $_POST y se crea la var. fecha de registro, luego se hashea la contraseña y se envian los datos a la base de datos. Y si el usuario que se esta registrando no ingresa un apellido, se manda null a la base de datos. Si el ingreso es correcto, se guardan los datos utiles en la sesion y el pais (nombre, no el numero).
+    - Index.html:
+        Se cambió el texto que se muestra en la página principal y se reemplazó la imagen por defecto.
 
 
         
