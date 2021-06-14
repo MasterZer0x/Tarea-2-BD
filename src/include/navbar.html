@@ -3,18 +3,21 @@
 <body>
     <nav class="navbar navbar-expand-sm bg-light">
         <!-- Ponga el número de su equipo -->
-        <a class="navbar-brand" href="/index.html">Equipo 16</a>
+        <a class="navbar-brand" href="/index.html">Equipo X</a>
         
 
         <ul class="navbar-nav">
             <!-- Visible solo si hay una sesión iniciada -->
-            <li class="nav-item">
+            <?php if(isset($_SESSION["email"])){
+            echo '<li class="nav-item">
                 <a class="nav-link" href="/user/profile.html">Perfil</a>
-            </li>
+            </li>'; } ?>
             <!-- Solo los usuarios tienen billetera -->
-            <li class="nav-item">
+            <?php if(isset($_SESSION["email"]) && $_SESSION["rango"] == "user"){
+            echo '<li class="nav-item">
                 <a class="nav-link" href="/user/wallet.html">Billetera</a>
-            </li>
+            </li>';
+        }?>
             <!-- Solo el admin puede revisar los usuarios -->
             <?php
             if(isset($_SESSION["rango"]) && $_SESSION["rango"]=="admin"){
