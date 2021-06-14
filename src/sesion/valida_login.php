@@ -1,7 +1,5 @@
-<?php
-session_start();
-?>
 <?php include $_SERVER['DOCUMENT_ROOT'].'/db_config.php';?>
+<?php include 'valida_sesion.php' ?>
 <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
@@ -19,6 +17,8 @@ session_start();
         if( pg_num_rows($result) > 0 ) {
             $row = pg_fetch_assoc($result);
             if (password_verify($password, $row["contraseña"])){
+                
+              
                 $_SESSION["email"] = $email;
                 
                 $sql = "SELECT nombre,apellido,pais,fecha_registro,rango FROM usuario WHERE correo='".$email."'";
@@ -36,14 +36,15 @@ session_start();
                 $_SESSION["fecha_registro"] = $row["fecha_registro"];
                 $_SESSION["rango"] = $row["rango"];
 
-                echo 'Login exitoso';
+                
                 echo "<script type='text/javascript'>document.location='/user/profile.html';</script>";
 
             } else {
-                echo "Contraseña Incorrecta";
+                
+                echo "<script type='text/javascript'>document.location='/sesion/log-in.html';</script>";
             }
         } else {
-            echo "Correo no registrado";
+            echo "<script type='text/javascript'>document.location='/sesion/log-in.html';</script>";
         }}
     
 ?>
