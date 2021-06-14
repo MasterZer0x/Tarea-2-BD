@@ -51,6 +51,22 @@ CRUD:
         -- Se incluye navbar.html
         -- Con el fin de no tener 2 usuarios con el mismo correo se verifica mediante un query a la BD si existe o no ya un usuario con el correo ingresado en el form. Si no existe un correo existente, entonces se actualiza al usuario con tal id con los datos ingresados, si no, entonces se manda una advertencia diciendo que ya existe tal correo.
         -- Se imprime en el .php el resultado de las querys.
+    - navbar.html:
+        En la barra de navegación con el uso de sesiones se agregan las condiciones para que aparezca cada link dependiendo del caso si es admin o esta logeado o no lo esta. Se usa el rango del usuario "admin" o "user".
+    - logout.php:
+        Con el uso de sesiones de PHP, se borran los datos de la sesión y se destruye la misma.
+    - log-in.html:
+        Se agregan los labels name en cada input.
+    - valida_login.php:
+        Se verifica que recibimos una petición POST y tambien se revisa si el usuario esta en la base de datos, luego se checkea si la contraseña coincide con la guardada en la base de datos. Luego pedimos algunos datos utiles a la DB para guardarlos en la sesion y redirigimos al usuario a la pestaña perfil. En otro caso lo lleva a la pagina principal.
+    - sign-up.html:
+        Se agregan los labels "name".
+    - valida_sesion.php:
+        Aqui revisa si estas en una pagina correcta dependiendo si estas logeado o no o eres admin, usando las variables de la sesion y la variable de pagina actual. Luego redirecciona a la pagina principal en caso de algo no deseado.
+    - valida_signup.php:
+        Se guardan las variables de $_POST y se crea la var. fecha de registro, luego se hashea la contraseña y se envian los datos a la base de datos. Y si el usuario que se esta registrando no ingresa un apellido, se manda null a la base de datos. Si el ingreso es correcto, se guardan los datos utiles en la sesion y el pais (nombre, no el numero).
+
+
         
 
 ## Dificultades y tiempo estimado:
@@ -59,9 +75,7 @@ En un principio se tuvo dificultad tratando de seguir un estandar para usar html
 
 (Rodrigo): Dificultades al instalar y juntar las tecnologías (No poder iniciar servidor Apache, restaurar el dump, conectar la base de datos a la página)
 
-- Francisco:
-- Juan: 
-- Rodrigo: 
+(Juan): Reinstalación de PostgreSQL, Migración a GIT.
 
 
 
