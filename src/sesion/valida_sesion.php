@@ -1,6 +1,4 @@
 <?php
-
-   session_start();  
 /* Este archivo debe usarse para comprobar si existe una sesión válida 
    Considerar qué pasa cuando la sesión es válida/inválida para cada página:
    - Página principal

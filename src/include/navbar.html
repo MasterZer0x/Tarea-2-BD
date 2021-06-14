@@ -4,7 +4,6 @@
     <nav class="navbar navbar-expand-sm bg-light">
         <!-- Ponga el número de su equipo -->
         <a class="navbar-brand" href="/index.html">Equipo X</a>
-        
 
         <ul class="navbar-nav">
             <!-- Visible solo si hay una sesión iniciada -->
@@ -16,33 +15,22 @@
                 <a class="nav-link" href="/user/wallet.html">Billetera</a>
             </li>
             <!-- Solo el admin puede revisar los usuarios -->
-            <?php
-            if(isset($_SESSION["rango"]) && $_SESSION["rango"]=="admin"){
-               echo '<li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="/admin/users/all.html">Usuarios</a>
-            </li>'; }?>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Visible solo si hay una sesión iniciada -->
-
-    <?php if(isset($_SESSION["email"])){
-
-      echo '<li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="/sesion/logout.php">Cerrar Sesión</a>
-            </li>';
-    } ?>
-            
+            </li>
             <!-- Visible solo si NO hay una sesión iniciada -->
-    <?php if(!isset($_SESSION["email"])){
-    
-      echo '<li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" href="/sesion/log-in.html">Iniciar Sesión</a>
             </li>
             <!-- Visible solo si NO hay una sesión iniciada -->
             <li class="nav-item">
                 <a class="nav-link" href="/sesion/sign-up.html">Registrarse</a>
-            </li>';
-        } ?>
+            </li>
         </ul>
-    
     </nav>
